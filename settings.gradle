@@ -8,3 +8,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "AndPluginTalk"
 include ':app'
+include ':insertpile_host'
+include ':insertpile_standard'
+include ':insertpile_plugin'
