@@ -26,4 +26,13 @@
         app:layout_constraintTop_toBottomOf="@id/text"
         android:layout_marginTop="20dp"/>
 
+    <Button
+        android:id="@+id/jumpPage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插件apk跳转自己的页面"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

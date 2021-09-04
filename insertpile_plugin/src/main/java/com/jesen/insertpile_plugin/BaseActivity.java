@@ -2,8 +2,10 @@ package com.jesen.insertpile_plugin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.jesen.insertpile_standard.ActivityInterface;
 
@@ -53,5 +55,17 @@ public class BaseActivity extends Activity implements ActivityInterface {
     @Override
     public void onDestroy() {
         Log.d(TAG,"---onDestroy");
+    }
+
+    public View findViewById(int viewId){
+        return hostAppActivity.findViewById(viewId);
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        Intent intentNew = new Intent();
+        intentNew.putExtra("className",intent.getComponent().getClassName());
+        hostAppActivity.startActivity(intentNew);
+
     }
 }
