@@ -26,6 +26,15 @@
         app:layout_constraintTop_toBottomOf="@id/text"
         android:layout_marginTop="20dp"/>
     <Button
+        android:id="@+id/send_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插件apk注册完后，发送广播"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/register_broadcast"/>
+    <Button
         android:id="@+id/register_broadcast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

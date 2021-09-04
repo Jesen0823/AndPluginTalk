@@ -15,6 +15,7 @@ public class PluginActivity extends BaseActivity {
     private Button jumpPage;
     private Button startService;
     private Button registerBroadcast;
+    private Button sendBroadcast;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,13 @@ public class PluginActivity extends BaseActivity {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.jesen.insertpile_plugin_BA");
             registerReceiver(new PluginReceiver(), intentFilter);
+        });
+
+        sendBroadcast = (Button) findViewById(R.id.send_broadcast);
+        sendBroadcast.setOnClickListener(view -> {
+            Intent intent = new Intent();
+            intent.setAction("com.jesen.insertpile_plugin_BA");
+            sendBroadcast(intent);
         });
     }
 }

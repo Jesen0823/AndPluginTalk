@@ -87,4 +87,9 @@ public class BaseActivity extends Activity implements ActivityInterface {
     public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter) {
         return hostAppActivity.registerReceiver(receiver, filter);
     }
+
+    @Override
+    public void sendBroadcast(Intent intent) {
+        hostAppActivity.sendBroadcast(intent);
+    }
 }

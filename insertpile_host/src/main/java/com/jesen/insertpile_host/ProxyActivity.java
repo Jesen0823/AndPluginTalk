@@ -83,4 +83,10 @@ public class ProxyActivity extends Activity {
         // 宿主注册广播,宿主代理插件的广播注册
         return super.registerReceiver(new ProxyReceiver(pluginReceiverName), filter);
     }
+
+    // 宿主代理发送广播
+    @Override
+    public void sendBroadcast(Intent intent) {
+        super.sendBroadcast(intent);
+    }
 }
