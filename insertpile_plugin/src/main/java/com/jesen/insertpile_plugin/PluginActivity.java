@@ -57,5 +57,6 @@ public class PluginActivity extends BaseActivity {
             intent.setAction("com.jesen.insertpile_plugin_BA");
             sendBroadcast(intent);
         });
+
     }
 }

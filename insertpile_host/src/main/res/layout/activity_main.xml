@@ -20,4 +20,17 @@
         android:layout_height="wrap_content"
         android:text="启动插件" />
 
+    <Button
+        android:id="@+id/register_static_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载插件中静态广播接收者并注册"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/send_static_broadcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送插件的静态广播"
+        android:layout_marginTop="20dp" />
 </LinearLayout>

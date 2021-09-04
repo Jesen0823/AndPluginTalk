@@ -16,6 +16,13 @@
             android:name=".SecondActivity"
             android:exported="true" />
 
+        <receiver android:name=".PlugStaticReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.jesen.insertpile_plugin_static_BR"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

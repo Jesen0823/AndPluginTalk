@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button load_plug_btn;
     private Button open_plug_btn;
+    private Button registerStaticBroadcast;
+    private Button sendStaticBroadcast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
         load_plug_btn = findViewById(R.id.load_plug_btn);
         open_plug_btn = findViewById(R.id.open_plug_btn);
-
+        sendStaticBroadcast = findViewById(R.id.send_static_broadcast);
+        registerStaticBroadcast = findViewById(R.id.register_static_broadcast);
 
         load_plug_btn.setOnClickListener(view->loadPlugin());
 
         open_plug_btn.setOnClickListener(view -> openPlugin());
+
+        registerStaticBroadcast.setOnClickListener(view -> registerPluginStaticBroadcast());
+
+        sendStaticBroadcast.setOnClickListener(view -> sendPluginStaticBroadcast());
     }
 
     private void loadPlugin() {
@@ -55,6 +62,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ProxyActivity.class);
         intent.putExtra("className",activityInfo.name);
         startActivity(intent);
+    }
+
+    private void registerPluginStaticBroadcast(){
+        PluginManager.getInstance(this).parseApkAction();
+    }
+
+    private void sendPluginStaticBroadcast(){
+        Intent intent = new Intent();
+        intent.setAction("com.jesen.insertpile_plugin_static_BR");
+        sendBroadcast(intent);
     }
 
     @Override
