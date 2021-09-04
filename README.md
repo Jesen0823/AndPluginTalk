@@ -81,4 +81,8 @@ android plugin 总结
         }
    ```
 
+   * 插件内部启动Service,同样需要代理
+
+  ![2021-09-04_194937.png](./images/README-1630756298783.png)
+
 

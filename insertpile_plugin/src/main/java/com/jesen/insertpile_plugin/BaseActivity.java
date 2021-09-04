@@ -2,11 +2,15 @@ package com.jesen.insertpile_plugin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.jesen.insertpile_standard.ActivityInterface;
 
@@ -76,5 +80,11 @@ public class BaseActivity extends Activity implements ActivityInterface {
         intentNew.putExtra("className", service.getComponent().getClassName());
         // 就是为了传递className
         return hostAppActivity.startService(intentNew);
+    }
+
+    // 注册广播，用宿主的环境
+    @Override
+    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter) {
+        return hostAppActivity.registerReceiver(receiver, filter);
     }
 }

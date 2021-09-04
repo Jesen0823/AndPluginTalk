@@ -1,10 +1,13 @@
 package com.jesen.insertpile_host;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
 
@@ -71,5 +74,13 @@ public class ProxyActivity extends Activity {
         Intent intent = new Intent(this, ProxyService.class);
         intent.putExtra("className", className);
         return super.startService(intent);
+    }
+
+    @Override
+    public Intent registerReceiver(@Nullable BroadcastReceiver receiver, IntentFilter filter) {
+        String pluginReceiverName = receiver.getClass().getName();
+
+        // 宿主注册广播,宿主代理插件的广播注册
+        return super.registerReceiver(new ProxyReceiver(pluginReceiverName), filter);
     }
 }

@@ -3,6 +3,7 @@ package com.jesen.insertpile_plugin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ public class PluginActivity extends BaseActivity {
     private TextView email;
     private Button jumpPage;
     private Button startService;
+    private Button registerBroadcast;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,13 @@ public class PluginActivity extends BaseActivity {
         startService = (Button) findViewById(R.id.startService);
         startService.setOnClickListener(view ->{
             startService(new Intent(hostAppActivity,PluginService.class));
+        });
+
+        registerBroadcast = (Button) findViewById(R.id.register_broadcast);
+        registerBroadcast.setOnClickListener(view -> {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.jesen.insertpile_plugin_BA");
+            registerReceiver(new PluginReceiver(), intentFilter);
         });
     }
 }
