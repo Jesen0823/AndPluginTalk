@@ -2,6 +2,7 @@ package com.jesen.insertpile_plugin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,5 +68,13 @@ public class BaseActivity extends Activity implements ActivityInterface {
         intentNew.putExtra("className",intent.getComponent().getClassName());
         hostAppActivity.startActivity(intentNew);
 
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+        Intent intentNew = new Intent();
+        intentNew.putExtra("className", service.getComponent().getClassName());
+        // 就是为了传递className
+        return hostAppActivity.startService(intentNew);
     }
 }

@@ -12,6 +12,7 @@ public class PluginActivity extends BaseActivity {
 
     private TextView email;
     private Button jumpPage;
+    private Button startService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,11 @@ public class PluginActivity extends BaseActivity {
         jumpPage =(Button) findViewById(R.id.jumpPage);
         jumpPage.setOnClickListener(view -> {
             startActivity(new Intent(hostAppActivity,SecondActivity.class));
+        });
+
+        startService = (Button) findViewById(R.id.startService);
+        startService.setOnClickListener(view ->{
+            startService(new Intent(hostAppActivity,PluginService.class));
         });
     }
 }

@@ -3,6 +3,7 @@ package com.jesen.insertpile_host;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -61,5 +62,14 @@ public class ProxyActivity extends Activity {
         Intent proxyIntent = new Intent(this, ProxyActivity.class);
         proxyIntent.putExtra("className", className);
         super.startActivity(proxyIntent);
+    }
+
+    @Override
+    public ComponentName startService(Intent service) {
+        String className = service.getStringExtra("className");
+
+        Intent intent = new Intent(this, ProxyService.class);
+        intent.putExtra("className", className);
+        return super.startService(intent);
     }
 }
